@@ -34,12 +34,4 @@ You can view/search this document online or offline, feel free to read it. :)
 
 This work is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International License**. To view a copy of this license, please visit <http://creativecommons.org/licenses/by-sa/4.0/>
 
-## To Do
 
-- [ ] add multiple languages support, currently 繁體中文, 简体中文 are available
-- [x] explore nice writing style
-- [x] add implementations of `Python`, `C++`, `Java` code
-- [x] add time and space complexity analysis
-- [x] summary of basic data structure and algorithm
-- [x] add CSS for online website <http://algorithm.yuanbin.me>
-- [x] add proper Chinese fonts for PDF output
