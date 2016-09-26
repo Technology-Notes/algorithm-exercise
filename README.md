@@ -1,6 +1,6 @@
 # Data Structure and Algorithm/leetcode/lintcode
 
-[![Build Status](https://travis-ci.org/billryan/algorithm-exercise.svg?branch=master)](https://travis-ci.org/billryan/algorithm-exercise)
+
 [![Slack Status](https://slackin4ds-algo.herokuapp.com/badge.svg)](https://slackin4ds-algo.herokuapp.com/)
 
 - English via [Data Structure and Algorithm notes](http://algorithm.yuanbin.me/en/index.html)
