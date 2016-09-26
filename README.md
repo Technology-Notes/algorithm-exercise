@@ -27,8 +27,7 @@ You can view/search this document online or offline, feel free to read it. :)
     1. EPUB: [GitHub](https://github.com/billryan/algorithm-exercise/tree/deploy/epub), [Gitbook](https://www.gitbook.com/download/epub/book/yuanbin/algorithm), [GitCafe(mainland China)](https://gitcafe.com/billryan/algorithm-exercise/tree/deploy/epub) - Recommended for iPhone/iPad/MAC
     2. PDF: [GitHub](https://github.com/billryan/algorithm-exercise/tree/deploy/pdf), [Gitbook](https://www.gitbook.com/download/pdf/book/yuanbin/algorithm), [GitCafe(mainland China)](https://gitcafe.com/billryan/algorithm-exercise/tree/deploy/pdf) - Recommended for Desktop
     3. MOBI: [GitHub](https://github.com/billryan/algorithm-exercise/tree/deploy/mobi), [Gitbook](https://www.gitbook.com/download/mobi/book/yuanbin/algorithm), [GitCafe(mainland China)](https://gitcafe.com/billryan/algorithm-exercise/tree/deploy/mobi) - Recommended for Kindle
-- Site Search via Google: `keywords site:algorithm.yuanbin.me`
-- Site Search via Swiftype: Click `Search this site` on the right bottom of webpages
+
 
 ## License
 
