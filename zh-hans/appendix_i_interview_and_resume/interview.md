@@ -125,4 +125,4 @@ be yourself, 坦白地说出自己不懂的地方，没什么不好的，把知�
 - [程序员面试：电话面试问答Top 50 - 博客 - 伯乐在线](http://blog.jobbole.com/84618/) - 其实不仅仅只是 Top 50，扩展连接还给出了其他参考。
 - [想加入硅谷顶级科技公司，你该知道这些](http://mp.weixin.qq.com/s?__biz=MzA4ODM1MTMzMQ==&amp;mid=205185140&amp;idx=2&amp;sn=7682772b799b0542de2f1a5cd13ad292&amp;scene=1#rd) - 数据工程师董飞的求职分享，涵盖硅谷公司的招聘流程，简历的书写，面试中的考察内容，选拔标准等。Evernote [备份链接](https://www.evernote.com/shard/s165/sh/4ef5916a-2db5-4d2e-b71b-68da38a92d41/cb6705242283b700)
 - [求职在美国，面试攻略我知道 on Vimeo](https://vimeo.com/113182965) - Coursera 数据工程师董飞的视频分享。
-- [^Facebook 交流]: [Facebook学长交流分享 - biaobiaoqi - 博客园](http://www.cnblogs.com/biaobiaoqi/p/3753750.html) - Facebook 工程师的经验分享，Frank 对面试和简历部分的分享极其详细，信息量很大。
+- [Facebook 交流]: [Facebook学长交流分享 - biaobiaoqi - 博客园](http://www.cnblogs.com/biaobiaoqi/p/3753750.html) - Facebook 工程师的经验分享，Frank 对面试和简历部分的分享极其详细，信息量很大。

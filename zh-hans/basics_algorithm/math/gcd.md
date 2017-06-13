@@ -4,11 +4,11 @@
 
 ## 最大公约数(GCD, Greatest Common Divisor)
 
-常用的方法为辗转相除法，也称为欧几里得算法。不妨设函数`gcd(a, b)`是自然是`a`, `b`的最大公约数，不妨设`a > b`, 则有 $$a = b \times p + q$$, 那么对于`gcd(b, q)`则是`b`和`q`的最大公约数，也就是说`gcd(b, q)`既能整除`b`, 又能整除`a`(因为 $$a = b \times p + q$$, `p`是整数)，如此反复最后得到`gcd(a, b) = gcd(c, 0)`, 第二个数为0时直接返回`c`. 如果最开始`a < b`, 那么`gcd(b, a % b) = gcd(b, a) = gcd(a, b % a)`.
+常用的方法为辗转相除法，也称为欧几里得算法。不妨设函数`gcd(a, b)`是自然是`a`, `b`的最大公约数，不妨设`a > b`, 则有 $a = b \times p + q$, 那么对于`gcd(b, q)`则是`b`和`q`的最大公约数，也就是说`gcd(b, q)`既能整除`b`, 又能整除`a`(因为 $a = b \times p + q$, `p`是整数)，如此反复最后得到`gcd(a, b) = gcd(c, 0)`, 第二个数为0时直接返回`c`. 如果最开始`a < b`, 那么`gcd(b, a % b) = gcd(b, a) = gcd(a, b % a)`.
 
 关于时间复杂度的证明：可以分`a > b/2`和`a < b/2`证明，对数级别的时间复杂度，过程略。
 
-与最大公约数相关的还有最小公倍数(LCM, Lowest Common Multiple), 它们两者之间的关系为 $$ lcm(a, b) \times gcd(a, b) = |ab|$$.
+与最大公约数相关的还有最小公倍数(LCM, Lowest Common Multiple), 它们两者之间的关系为 $ lcm(a, b) \times gcd(a, b) = |ab|$.
 
 ### Java
 
@@ -29,11 +29,11 @@ public static long gcd(long a, long b) {
 $$
 \frac{y-y_1}{x-x_1}=\frac{y_2 - y_1}{x_2 - x_1}
 $$
-那么若得知 $$M = gcd(x_2 - x_1, y_2 - y_1)$$, 则有 $$x - x_1$$ 必为 $$x_2 - x_1 / M$$ 的整数倍大小，又因为 $$ x_1 < x < x_2$$, 故最多有 $$M - 1$$个整数坐标点。
+那么若得知 $M = gcd(x_2 - x_1, y_2 - y_1)$, 则有 $x - x_1$ 必为 $x_2 - x_1 / M$ 的整数倍大小，又因为 $x_1 < x < x_2$, 故最多有 $M - 1$个整数坐标点。
 
 ## 扩展欧几里得算法
 
-求解整系数 $$x$$ 和 $$y$$ 满足 $$d = gcd(a, b) = ax + by$$, 仿照欧几里得算法，应该要寻找 $$gcd(b, a \% b) = bx^\prime + (a \% b)y^\prime$$.
+求解整系数 $x$ 和 $y$ 满足 $d = gcd(a, b) = ax + by$, 仿照欧几里得算法，应该要寻找 $gcd(b, a \% b) = bx^\prime + (a \% b)y^\prime$.
 
 ### Java
 
@@ -66,12 +66,12 @@ public class Solution {
 
 ### Problem
 
-求整数 $$x$$ 和 $$y$$ 使得 $$ax+by=1$$.
+求整数 $x$ 和 $y$ 使得 $ax+by=1$.
 
 #### Solution
 
-不妨设`gcd(a, b) = M`, 那么有 $$M(a^\prime x+b^\prime y)=1$$ ==> $$a^\prime x+b^\prime y=1/M$$ 如果 M 大于1，由于等式左边为整数，故等式不成立，所以要想题中等式有解，必有`gcd(a, b) = 1`.
+不妨设`gcd(a, b) = M`, 那么有 $M(a^\prime x+b^\prime y)=1$ ==> $a^\prime x+b^\prime y=1/M$ 如果 M 大于1，由于等式左边为整数，故等式不成立，所以要想题中等式有解，必有`gcd(a, b) = 1`.
 
 **扩展提：题中等式右边为1，假如为2又会怎样？**
 
-提示：此时$$c = k \cdot gcd(a, b), x^\prime = k\cdot x ==> c\ \%\ gcd(a, b) == 0$$, c 为等式右边的正整数值。详细推导见 [How to find solutions of linear Diophantine ax + by = c?](http://math.stackexchange.com/questions/20717/how-to-find-solutions-of-linear-diophantine-ax-by-c)
+提示：此时$c = k \cdot gcd(a, b), x^\prime = k\cdot x ==> c\ \%\ gcd(a, b) == 0$, c 为等式右边的正整数值。详细推导见 [How to find solutions of linear Diophantine ax + by = c?](http://math.stackexchange.com/questions/20717/how-to-find-solutions-of-linear-diophantine-ax-by-c)
