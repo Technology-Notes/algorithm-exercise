@@ -23,3 +23,6 @@ _book
 # Auth
 #######
 scripts/auth.conf
+
+# PDF
+*.pdf
