@@ -8,7 +8,7 @@
 
 关于时间复杂度的证明：可以分`a > b/2`和`a < b/2`证明，对数级别的时间复杂度，过程略。
 
-与最大公约数相关的还有最小公倍数(LCM, Lowest Common Multiple), 它们两者之间的关系为 $ lcm(a, b) \times gcd(a, b) = |ab|$.
+与最大公约数相关的还有最小公倍数(LCM, Lowest Common Multiple), 它们两者之间的关系为 $lcm(a, b) \times gcd(a, b) = |ab|$.
 
 ### Java
 
@@ -16,6 +16,24 @@
 public static long gcd(long a, long b) {
     return (b == 0) ? a : gcd(b, a % b);
 }
+```
+
+### C++
+
+```cpp
+int gcd(int a, int b) {
+    return (b == 0) ? a : gcd(b, a % b);
+}
+```
+
+### python
+
+```python
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
 ```
 
 ### Problem
@@ -72,6 +90,6 @@ public class Solution {
 
 不妨设`gcd(a, b) = M`, 那么有 $M(a^\prime x+b^\prime y)=1$ ==> $a^\prime x+b^\prime y=1/M$ 如果 M 大于1，由于等式左边为整数，故等式不成立，所以要想题中等式有解，必有`gcd(a, b) = 1`.
 
-**扩展提：题中等式右边为1，假如为2又会怎样？**
+**扩展题：题中等式右边为1，假如为2又会怎样？**
 
 提示：此时$c = k \cdot gcd(a, b), x^\prime = k\cdot x ==> c\ \%\ gcd(a, b) == 0$, c 为等式右边的正整数值。详细推导见 [How to find solutions of linear Diophantine ax + by = c?](http://math.stackexchange.com/questions/20717/how-to-find-solutions-of-linear-diophantine-ax-by-c)
