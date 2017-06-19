@@ -4,7 +4,7 @@ Tags: Hash Table, String, Medium
 
 ## Question
 
-- leetcode: [Group Anagrams](https://leetcode.com/problems/anagrams/)
+- leetcode: [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 - lintcode: [Group Anagrams](http://www.lintcode.com/en/problem/anagrams/)
 
 ### Problem Statement
