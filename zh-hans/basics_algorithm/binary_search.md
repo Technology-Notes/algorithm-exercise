@@ -182,7 +182,7 @@ public class Main {
     public static double solve(double[] nums, int K) {
         double lb = 0.00, ub = 10e5 + 0.01;
         // while (lb + 0.001 < ub) {
-	for (int i = 0; i < 100; i++) {
+	    for (int i = 0; i < 100; i++) {
             double mid = lb + (ub - lb) / 2;
             if (C(nums, mid, K)) {
                 lb = mid;
@@ -209,7 +209,7 @@ public class Main {
 
 ## 模板三 - 二分搜索的 `while` 结束条件判定
 
-对于整型我们通常使用`lb + 1 < ub`, 但对于`double`型数据来说会有些精度上的丢失，使得结束条件不是那么好确定。像上题中采用的方法是题目中使用的精度除10。但有时候这种精度可能还是不够，如果结束条件`lb + EPS < ub`中使用的 EPS 过小时 double 型数据精度有可能不够从而导致死循环的产生！这时候我们将`while`循环体替换为`for (int i = 0; i < 100; i++)`, 100 次循环后可以达到 $$10^{-30}$$ 精度范围，一般都没问题。
+对于整型我们通常使用`lb + 1 < ub`, 但对于`double`型数据来说会有些精度上的丢失，使得结束条件不是那么好确定。像上题中采用的方法是题目中使用的精度除10。但有时候这种精度可能还是不够，如果结束条件`lb + EPS < ub`中使用的 EPS 过小时 double 型数据精度有可能不够从而导致死循环的产生！这时候我们将`while`循环体替换为`for (int i = 0; i < 100; i++)`, 100 次循环后可以达到 $10^{-30}$ 精度范围，一般都没问题。
 
 ## 模板四 － （九章算法）模版
 
@@ -222,7 +222,7 @@ public class Main {
 3. A[mid] ==, >, <
     在循环中， 分三种情况讨论边界。 要注意， 在移动`start`和`end`的时候， 只要单纯的把指针指向`mid`的位置， 不要`+1`或者`-1`。 因为只移动边界到`mid`的位置， 不会误删除target。在工程中，尽量在程序最后的时候统一写`return`, 这样可以增强可读性。
 4. A[start], A[end]? target
-    在循环结束时，因为只有1～2个元素需要讨论，所以结果非常容易解释清楚。 只存在的2种情况为， 1. `start + 1 == end` 边界指向相邻的两个元素， 这时只需要分情况讨论`start`和`end`与target的关系，就可以得出结果。 2. `start == end` 边界指向同一元素， 其实这个情况还是可以按照1的方法，分成`start``end`讨论，只不过讨论结果一样而已。
+    在循环结束时，因为只有1～2个元素需要讨论，所以结果非常容易解释清楚。 只存在的2种情况为， 1. `start + 1 == end` 边界指向相邻的两个元素， 这时只需要分情况讨论`start`和`end`与target的关系，就可以得出结果。 2. `start == end` 边界指向同一元素， 其实这个情况还是可以按照1的方法，分成`start`, `end`讨论，只不过讨论结果一样而已。
 
 ### Python
 ```python
@@ -287,6 +287,7 @@ class Solution {
 返回[3, 4]
 
 ### Python
+
 ```python
 class Solution:
     def search_range(self, array, target):
@@ -328,6 +329,52 @@ class Solution:
 ### 源码分析
 search range的问题可以理解为， 寻找第一次target出现的位置和最后一次target出现的位置。 当寻找第一次target出现位置的循环中， `array[mid] == target`表示， target可以出现在mid或者mid更前的位置， 所以将ed移动到mid。当循环跳出时， st的位置在ed之前，所以先判断在st位置上是否是target， 再判断ed位置。当寻找最后一次target出现位置的循环中，`array[mid] == target`表示， target可以出现在mid或者mid之后的位置， 所以将st移动到mid。 当循环结束时，ed的位置比st的位置更靠后， 所以先判断ed的位置是否为target， 再判断st位置。 最后返回ret。
 
+### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> searchRange(vector<int> &A, int target) {
+        // write your code here
+        vector<int> ret = {-1, -1};
+        if (A.empty())
+            return ret;
+
+        // check the first position
+        auto start = A.begin(), end = A.end()-1;
+        while (start + 1 < end) {
+            auto mid = start + static_cast<int>((end-start) / 2);
+
+            if (*mid >= target)
+                end = mid;
+            else
+                start = mid;
+        }
+        if (*end == target)
+            ret[0] = end - A.begin();
+        if (*start == target)
+            ret[0] = start - A.begin();
+
+        // last posotion
+        start = A.begin();
+        end = A.end()-1;
+        while (start + 1 < end) {
+            auto mid = start + static_cast<int>((end-start) / 2);
+
+            if (*mid <= target)
+                start = mid;
+            else
+                end = mid;
+        }
+        if (*start == target)
+            ret[1] = start - A.begin();
+        if (*end == target)
+            ret[1] = end - A.begin();
+
+        return ret;
+    }
+};
+```
 ## Reference
 
 - 《挑战程序设计竞赛》
