@@ -158,6 +158,28 @@ class Solution {
 }
 ```
 
+### Python
+
+```python
+class Solution(object):
+    def permuteUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+        self.dfs(sorted(nums),[],res)
+        return res
+    
+    def dfs(self,nums,path,res):
+        if not nums:
+            res.append(path)
+        for i in xrange(len(nums)):
+            if nums[i] == nums[i-1] and i>0:
+                continue
+            self.dfs(nums[:i]+nums[i+1:],path+[nums[i]],res)
+```
+
 ### 源码分析
 
 见前一题，略。
