@@ -8,7 +8,7 @@ String 相关的题常出现在面试题中，实际开发也经常用到，这�
 // 头文件
 #include <string>
 // 1. 定义和初始化
-string s; // s是一个空串
+string s; // s是一个空串 
 string s = "value"; // s被初始化为字面值"value"的副本
 string s(n,'c'); // s被初始化为n个字符c的字符串
 // 2. 对字符串对象的操作
