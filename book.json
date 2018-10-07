@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "disqus",
+        "-disqus",
         "ga",
         "katex",
         "richquotes",
@@ -10,7 +10,7 @@
         "edit-link",
         "feed",
         "etoc",
-        "algolia",
+        "-algolia",
         "tags"
     ],
     "pluginsConfig": {
@@ -54,8 +54,8 @@
         },
         "algolia": {
             "index": "algorithm",
-            "applicationID": "9YBMOZR89J",
-            "publicKey": "5860a3e55ee72831917b1b9e2a4649ca",
+            "applicationID": "OA9X0I1NES",
+            "publicKey": "231978642327f99b9019c2b070ac3254",
             "freeAccount": "true"
         }
     }
