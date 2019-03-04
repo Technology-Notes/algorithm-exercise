@@ -17,7 +17,7 @@ class Sort:
         if len(alist) <= 1:
             return alist
 
-        mid = len(alist) / 2
+        mid = int(len(alist) / 2)
         left = self.mergeSort(alist[:mid])
         print("left = " + str(left))
         right = self.mergeSort(alist[mid:])
