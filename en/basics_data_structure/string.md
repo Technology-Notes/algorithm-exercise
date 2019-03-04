@@ -17,7 +17,7 @@ s2[5:8] # wei
 s3 = s2[:5] # shaun
 s3 += 'wei' # return 'shaunwei'
 # list in python is same as ArrayList in java
-s2list = list(s3)
+s2list = list(s3) # ['s', 'h', 'a', 'u', 'n', 'w', 'e', 'i']
 # string at index 4
 s2[4] # 'n'
 # find index at first
