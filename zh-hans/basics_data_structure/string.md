@@ -44,3 +44,14 @@ int index = s2.indexOf('r'); // return 4. if not found, return -1
 ```
 
 StringBuffer 与 StringBuilder, 前者保证线程安全，后者不是，但单线程下效率高一些，一般使用 StringBuilder.
+
+## C++
+
+```C++
+string s1 = "Fy";
+string s2("Lxq");
+int s2Len = s2.size();
+s2.substr(0, 2); //return "Lx"
+string s3 = s1 + "and" + s2; //return "FyandLxq"
+int index = s3.find('L'); //return 5, if not find return -1
+char ch = s3[0]; //return F
