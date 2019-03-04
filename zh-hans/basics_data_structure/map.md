@@ -4,6 +4,23 @@ Map 是一种关联数组的数据结构，也常被称为字典或键值对。
 
 ## 编程实现
 
+### C++
+
+map中的每个元素是一个pair对象，包含一个key和一个value，key_type和value_type可以不同。key不可改变，是const的。
+
+```C++
+#include <map>
+map<key_type, value_type> m;
+m[key1] = value1;
+
+for(map<string, int>::const_iterator it = m.begin(); it!=m.end();it++){
+  cout<<it->first<<":"<<it->second<<endl;
+}
+```
+
+
+
+
 ### Python
 
 在 Python 中 `dict`(Map) 是一种基本的数据结构。
