@@ -131,7 +131,7 @@ public ListNode reverse(ListNode head) {
 class DListNode:
     def __init__(self, val):
         self.val = val
-        self.prev = self.next = null
+        self.prev = self.next = None
 
     def reverse(self, head):
         curt = None
@@ -217,4 +217,40 @@ class NodeCircle:
             return True
         else:
             return False
+```
+```c++: is a circle
+class List
+{
+public:
+bool iscircle(ListNode* head)
+{
+	if (!head || !head->next) return false;
+	ListNode *low = head, *fast = high;
+	while(fast && fast->next)
+	{
+		low = low->next;
+		fast = fast->next->next;
+		if (low == fast) return true;
+	}
+	return false;
+}
+};
+```
+
+```c++
+class List
+{
+public:
+ListNode* InLisNodet(ListNode *head)
+{
+	if (!head || !head->next) return head;
+	ListNode *low = head, *fast = head;
+	while(fast && fast->next)
+	{
+		low = low->next;
+		fast = fast->next->next;
+	}
+	return low;
+}
+};
 ```
