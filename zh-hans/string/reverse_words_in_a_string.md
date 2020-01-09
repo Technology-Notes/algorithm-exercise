@@ -50,6 +50,19 @@ class Solution(object):
         return ' '.join(reversed(s.strip().split()))
 ```
 
+### Python
+```python
+class Solution:
+    # @param s : A string
+    # @return : A string
+    def reverseWords(self, s):
+        if s is None:
+            return None
+        stringList = s.strip().split(" ")
+        return " ".join(stringList[::-1])
+```
+
+
 ### C++
 
 ```c++
