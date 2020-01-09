@@ -94,36 +94,37 @@ public:
 
 ```java
 /**
- * Definition for singly-linked list.
+ * Definition for ListNode.
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode(int val) {
+ *         this.val = val;
+ *         this.next = null;
+ *     }
  * }
- */
-class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        if (head == nul) return head;
-
+ */ 
+public class Solution {
+    /**
+     * @param head: The first node of linked list.
+     * @param n: An integer.
+     * @return: The head of linked list.
+     */
+    ListNode removeNthFromEnd(ListNode head, int n) {
+        // write your code here
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode fast = head;
         ListNode slow = dummy;
-        for (int i = 0; i < n; i++) {
-            fast = fast.next;
+        int i = 0;
+        for (; head != null; i++) {
+            if (i >= n) {
+                slow = slow.next;
+            }
+            head = head.next;
         }
-
-        while(fast != null) {
-            fast = fast.next;
-            slow = slow.next;
-        }
-
-        // gc friendly
-        // ListNode toBeDeleted = slow.next;
-        slow.next = slow.next.next;
-        // toBeDeleted.next = null;
-        // toBeDeleted = null;
-
+        // check first node == null case
+        if (slow.next != null) slow.next = slow.next.next;
+        else slow.next = null;
         return dummy.next;
     }
 }
