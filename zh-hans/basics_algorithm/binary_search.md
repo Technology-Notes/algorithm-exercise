@@ -2,7 +2,7 @@
 
 二分搜索是一种在有序数组中寻找目标值的经典方法，也就是说使用前提是『有序数组』。非常简单的题中『有序』特征非常明显，但更多时候可能需要我们自己去构造『有序数组』。下面我们从最基本的二分搜索开始逐步深入。
 
-## 模板一 - lower/upper bound
+## 模板一: lower/upper bound
 
 定义 lower bound 为在给定升序数组中大于等于目标值的最小索引，upper bound 则为小于等于目标值的最大索引，下面上代码和测试用例。
 
@@ -58,6 +58,58 @@ public class Main {
 }
 ```
 
+### C++
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int lowerBound(std::vector<int> nums, int target);
+int upperBound(std::vector<int> nums, int target);
+
+int main() {
+    std::vector<int> nums = {1,2,2,3,4,6,6,6,13,18};
+    std::cout << lowerBound(nums, 6) << std::endl;
+    std::cout << upperBound(nums, 6) << std::endl;
+    std::cout << lowerBound(nums, 7) << std::endl;
+    std::cout << upperBound(nums, 7) << std::endl;
+
+    return 0;
+}
+
+int lowerBound(std::vector<int> nums, int target) {
+    if (nums.size() == 0)
+        return -1;
+    size_t lb = -1, ub = nums.size();
+    while (lb + 1 < ub) {
+        size_t mid = lb + (ub - lb) / 2;
+        if (nums[mid] < target) {
+            lb = mid;
+        } else {
+            ub = mid;
+        }
+    }
+
+    return lb + 1;
+}
+
+int upperBound(std::vector<int> nums, int target) {
+    if (nums.size() == 0)
+        return -1;
+    size_t lb = -1, ub = nums.size();
+    while (lb + 1 < ub) {
+        size_t mid = lb + (ub - lb) / 2;
+        if (nums[mid] > target) {
+            ub = mid;
+        } else {
+            lb = mid;
+        }
+    }
+
+    return ub - 1;
+}
+```
+
 ### 源码分析
 
 以`lowerBound`的实现为例，以上二分搜索的模板有几个非常优雅的实现：
@@ -82,13 +134,13 @@ public class Main {
 
 除了在有序数组中寻找目标值这种非常直接的二分搜索外，我们还可以利用二分搜索求最优解（最大值/最小值），通常这种题中只是隐含了『有序数组』，需要我们自己构造。
 
-用数学语言来描述就是『求满足某条件 $$C(x)$$ 的最小/大的 $$x$$』，以求最小值为例，对于任意满足条件的 $$x$$, 如果所有的 $$x \leq x^\prime \leq UB$$ 对于 $$C(x^\prime)$$ 都为真（其中 `UB` 可能为无穷大，也可能为满足条件的最大的解，如果不满足此条件就不能保证二分搜索的正确性），那么我们就能使用二分搜索进行求解，其中初始化时下界`lb` 初始化为不满足条件的值`LB`, 上界初始化为满足条件的上界`UB`. 随后在`while` 循环内部每次取中，满足条件就取`ub = mid`, 否则`lb = mid`, 那么最后`ub` 就是要求的最小值。求最大值时类似，只不过处理的是`lb`.
+用数学语言来描述就是『求满足某条件 $C(x)$ 的最小/大的 $x$』，以求最小值为例，对于任意满足条件的 $x$, 如果所有的 $x \leq x^\prime \leq UB$ 对于 $C(x^\prime)$ 都为真（其中 `UB` 可能为无穷大，也可能为满足条件的最大的解，如果不满足此条件就不能保证二分搜索的正确性），那么我们就能使用二分搜索进行求解，其中初始化时下界`lb` 初始化为不满足条件的值`LB`, 上界初始化为满足条件的上界`UB`. 随后在`while` 循环内部每次取中，满足条件就取`ub = mid`, 否则`lb = mid`, 那么最后`ub` 就是要求的最小值。求最大值时类似，只不过处理的是`lb`.
 
 以 [POJ No.1064](http://poj.org/problem?id=1064) 为例。
 
 ### Problem Statement
 
-有 $$N$$ 条绳子，它们的长度分别为 $$L_i$$. 如果从它们中切割出 $$K$$ 条长度相同的绳子的话，这 $$K$$ 条绳子每条最长能有多长？答案保留到小数点后两位。
+有 $N$ 条绳子，它们的长度分别为 $L_i$. 如果从它们中切割出 $K$ 条长度相同的绳子的话，这 $K$ 条绳子每条最长能有多长？答案保留到小数点后两位。
 
 #### 输入
 
@@ -102,7 +154,7 @@ N = 4, L = {8.02, 7.43, 4.57, 5.39}, K = 11
 
 ### 题解
 
-这道题看似是一个最优化问题，我们来尝试下使用模板二的思想求解，**令 $$C(x)$$ 为『可以得到 $$K$$ 条长度为 $$x$$ 的绳子』。**根据题意，我们可以将上述条件进一步细化为：
+这道题看似是一个最优化问题，我们来尝试下使用模板二的思想求解，**令 $C(x)$ 为『可以得到 $K$ 条长度为 $x$ 的绳子』。** 根据题意，我们可以将上述条件进一步细化为：
 $$
 C(x) = \sum_i(floor(L_i / x)) \geq K
 $$
@@ -130,7 +182,7 @@ public class Main {
     public static double solve(double[] nums, int K) {
         double lb = 0.00, ub = 10e5 + 0.01;
         // while (lb + 0.001 < ub) {
-	for (int i = 0; i < 100; i++) {
+	    for (int i = 0; i < 100; i++) {
             double mid = lb + (ub - lb) / 2;
             if (C(nums, mid, K)) {
                 lb = mid;
@@ -157,7 +209,7 @@ public class Main {
 
 ## 模板三 - 二分搜索的 `while` 结束条件判定
 
-对于整型我们通常使用`lb + 1 < ub`, 但对于`double`型数据来说会有些精度上的丢失，使得结束条件不是那么好确定。像上题中采用的方法是题目中使用的精度除10。但有时候这种精度可能还是不够，如果结束条件`lb + EPS < ub`中使用的 EPS 过小时 double 型数据精度有可能不够从而导致死循环的产生！这时候我们将`while`循环体替换为`for (int i = 0; i < 100; i++)`, 100 次循环后可以达到 $$10^{-30}$$ 精度范围，一般都没问题。
+对于整型我们通常使用`lb + 1 < ub`, 但对于`double`型数据来说会有些精度上的丢失，使得结束条件不是那么好确定。像上题中采用的方法是题目中使用的精度除10。但有时候这种精度可能还是不够，如果结束条件`lb + EPS < ub`中使用的 EPS 过小时 double 型数据精度有可能不够从而导致死循环的产生！这时候我们将`while`循环体替换为`for (int i = 0; i < 100; i++)`, 100 次循环后可以达到 $10^{-30}$ 精度范围，一般都没问题。
 
 ## 模板四 － （九章算法）模版
 
@@ -235,6 +287,7 @@ class Solution {
 返回[3, 4]
 
 ### Python
+
 ```python
 class Solution:
     def search_range(self, array, target):
@@ -276,6 +329,52 @@ class Solution:
 ### 源码分析
 search range的问题可以理解为， 寻找第一次target出现的位置和最后一次target出现的位置。 当寻找第一次target出现位置的循环中， `array[mid] == target`表示， target可以出现在mid或者mid更前的位置， 所以将ed移动到mid。当循环跳出时， st的位置在ed之前，所以先判断在st位置上是否是target， 再判断ed位置。当寻找最后一次target出现位置的循环中，`array[mid] == target`表示， target可以出现在mid或者mid之后的位置， 所以将st移动到mid。 当循环结束时，ed的位置比st的位置更靠后， 所以先判断ed的位置是否为target， 再判断st位置。 最后返回ret。
 
+### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> searchRange(vector<int> &A, int target) {
+        // write your code here
+        vector<int> ret = {-1, -1};
+        if (A.empty())
+            return ret;
+
+        // check the first position
+        auto start = A.begin(), end = A.end()-1;
+        while (start + 1 < end) {
+            auto mid = start + static_cast<int>((end-start) / 2);
+
+            if (*mid >= target)
+                end = mid;
+            else
+                start = mid;
+        }
+        if (*end == target)
+            ret[0] = end - A.begin();
+        if (*start == target)
+            ret[0] = start - A.begin();
+
+        // last posotion
+        start = A.begin();
+        end = A.end()-1;
+        while (start + 1 < end) {
+            auto mid = start + static_cast<int>((end-start) / 2);
+
+            if (*mid <= target)
+                start = mid;
+            else
+                end = mid;
+        }
+        if (*start == target)
+            ret[1] = start - A.begin();
+        if (*end == target)
+            ret[1] = end - A.begin();
+
+        return ret;
+    }
+};
+```
 ## Reference
 
 - 《挑战程序设计竞赛》
