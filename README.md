@@ -1,8 +1,7 @@
 # Data Structure and Algorithm/leetcode/lintcode
 
-[![Build Status](https://travis-ci.org/billryan/algorithm-exercise.svg?branch=master)](https://travis-ci.org/billryan/algorithm-exercise)
+
 [![Slack Status](https://slackin4ds-algo.herokuapp.com/badge.svg)](https://slackin4ds-algo.herokuapp.com/)
-[![Chat on Slack](https://img.shields.io/badge/chat-on_slack-orange.svg)](https://ds-algo.slack.com/)
 
 - English via [Data Structure and Algorithm notes](http://algorithm.yuanbin.me/en/index.html)
 - 简体中文请戳 [数据结构与算法/leetcode/lintcode题解](http://algorithm.yuanbin.me/zh-hans/index.html)
@@ -29,6 +28,7 @@ You can view/search this document online or offline, feel free to read it. :)
     3. MOBI: [GitHub](https://github.com/sign4bill/algorithm-exercise/tree/deploy/mobi), [Gitbook](https://www.gitbook.com/download/mobi/book/yuanbin/algorithm), [七牛 CDN(中国大陆用户适用)](http://7xojrx.com1.z0.glb.clouddn.com/docs/algorithm-exercise/index.html) - Recommended for Kindle
 - Site Search via Google: `keywords site:algorithm.yuanbin.me`
 - Site Search via Swiftype: Click `Search this site` on the right bottom of webpages
+
 
 ## License
 
@@ -77,10 +77,3 @@ Other contributors can be found in [Contributors to algorithm-exercise](https://
 
 ## To Do
 
-- [ ] add multiple languages support, currently 繁體中文, 简体中文 are available
-- [x] explore nice writing style
-- [x] add implementations of `Python`, `C++`, `Java` code
-- [x] add time and space complexity analysis
-- [x] summary of basic data structure and algorithm
-- [x] add CSS for online website <http://algorithm.yuanbin.me>
-- [x] add proper Chinese fonts for PDF output
