@@ -1,10 +1,8 @@
-# Implement strStr
-
-Tags: Two Pointers, String, Easy
+# strStr
 
 ## Question
 
-- leetcode: [28-Implement strStr() | LeetCode OJ](https://leetcode.com/problems/implement-strstr/)
+- leetcode: [Implement strStr() | LeetCode OJ](https://leetcode.com/problems/implement-strstr/)
 - lintcode: [lintcode - (13) strstr](http://www.lintcode.com/en/problem/strstr/)
 
 ### Problem Statement
@@ -37,28 +35,87 @@ It's very straightforward to solve string match problem with nested for loops. S
 ### Python
 
 ```python
-class Solution(object):
-    def strStr(self, haystack, needle):
-        """
-        :type haystack: str
-        :type needle: str
-        :rtype: int
-        """
-        # https://discuss.leetcode.com/topic/29848/my-answer-by-python/6
-        # The time complexity is definitely not O(n), it is O((n-m)*m).
-        # Since checking haystack[i:i+len(needle)] == needle is O(m) done O(n-m) times.
-        # n - length of haystack m - length of needle
-        if haystack is None or needle is None:
+class Solution:
+    def strStr(self, source, target):
+        if source is None or target is None:
             return -1
-        for i in range(len(haystack) - len(needle) + 1):
-            if haystack[i:i+len(needle)] == needle:
+
+        for i in range(len(source) - len(target) + 1):
+            for j in range(len(target)):
+                if source[i + j] != target[j]:
+                    break
+            else:  # no break
                 return i
         return -1
-
-if __name__ == '__main__':
-    print Solution().strStr('a', "")
 ```
 
+### C
+
+```c
+int strStr(char* haystack, char* needle) {
+    if (haystack == NULL || needle == NULL) return -1;
+
+    const int len_h = strlen(haystack);
+    const int len_n = strlen(needle);
+    for (int i = 0; i < len_h - len_n + 1; i++) {
+        int j = 0;
+        for (; j < len_n; j++) {
+            if (haystack[i+j] != needle[j]) {
+                break;
+            }
+        }
+        if (j == len_n) return i;
+    }
+
+    return -1;
+}
+```
+
+### C++
+```c++
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if (haystack.empty() && needle.empty()) return 0;
+        if (haystack.empty()) return -1;
+        if (needle.empty()) return 0;
+        // in case of overflow for negative
+        if (haystack.size() < needle.size()) return -1;
+
+        for (int i = 0; i < haystack.size() - needle.size() + 1; i++) {
+            string::size_type j = 0;
+            for (; j < needle.size(); j++) {
+                if (haystack[i + j] != needle[j]) break;
+            }
+            if (j == needle.size()) return i;
+        }
+
+        return -1;
+    }
+};
+```
+
+### Java
+
+```java
+public class Solution {
+    public int strStr(String haystack, String needle) {
+        if (haystack == null && needle == null) return 0;
+        if (haystack == null) return -1;
+        if (needle == null) return 0;
+        
+        for (int i = 0; i < haystack.length() - needle.length() + 1; i++) {
+            int j = 0;
+            for (; j < needle.length(); j++) {
+                if (haystack.charAt(i+j) != needle.charAt(j)) break;
+            }
+            if (j == needle.length()) return i;
+        }
+
+        return -1;
+    }
+}
+```
 
 ### Source Code Analysis
 
@@ -74,10 +131,3 @@ Some Pythonic notes: [4. More Control Flow Tools](https://docs.python.org/3/tuto
 ### Complexity Analysis
 
 nested for loop, $$O((n-m)m)$$ for worst case.
-
-
-## What is KMP?
-
-> [https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
-
-

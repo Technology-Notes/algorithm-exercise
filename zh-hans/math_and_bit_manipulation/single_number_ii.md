@@ -1,5 +1,6 @@
 # Single Number II
 
+<<<<<<< HEAD
 Tags: Bit Manipulation, Medium
 
 ## Question
@@ -15,6 +16,21 @@ one, which appears exactly once. Find that single one.
 **Note:**  
 Your algorithm should have a linear runtime complexity. Could you implement it
 without using extra memory?
+=======
+## Question
+
+- leetcode: [Single Number II | LeetCode OJ](https://leetcode.com/problems/single-number-ii/)
+- lintcode: [(83) Single Number II](http://www.lintcode.com/en/problem/single-number-ii/)
+
+### Problem Statement
+
+Given `3*n + 1` numbers, every numbers occurs triple times except one, find
+it.
+
+#### Example
+
+Given `[1,1,2,3,3,3,2,2,4,1]` return `4`
+>>>>>>> pr/25
 
 #### Challenge
 
@@ -92,6 +108,7 @@ public:
 };
 ```
 
+<<<<<<< HEAD
 ### Java
 
 ```java
@@ -113,6 +130,8 @@ public class Solution {
 }
 ```
 
+=======
+>>>>>>> pr/25
 ### 源码解析
 
 1. 异常处理
